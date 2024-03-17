@@ -14,7 +14,7 @@ Das Skript `cloudpanel-autorenew-letsencrypt-certs.v1.sh` automatisiert die Erne
 
 Die Ausgabe sollte folgendermaßen aussehen:
 
-![autorenew](https://git.media-techport.de/scriptos/cloudpanel-autorenew-letsencrypt-certs/raw/branch/main/assets/autorenew.png)
+![autorenew](https://git.media-techport.de/scriptos/cloudpanel-autorenew-letsencrypt-certs/raw/branch/main/assets/autorenew1.png)
 
 ## Cronjob:
 
