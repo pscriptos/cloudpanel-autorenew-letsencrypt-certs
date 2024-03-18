@@ -5,18 +5,20 @@
 # Autor:        Patrick Asmus
 # Web:          https://www.media-techport.de
 # Git-Reposit.: https://git.media-techport.de/scriptos/cloudpanel-autorenew-letsencrypt-certs.git
-# Version:      1.1
+# Version:      1.1.1
 # Datum:        18.03.2024
-# Modifikation: Benachrichtigung per Email hinzugefuegt
+# Modifikation: Emailfunktion um Ansendername erweitert
 #####################################################
 
 # Variablen
+hostname=$(hostname)
 config_path="/etc/nginx/sites-enabled/"
 log_dir="/var/log/script-logs"
 log_file="$log_dir/cloudpanel-letsencrypt-renew.log"
 
-email_to="system@media-techport.de"
 email_from="noreply@media-techport.de"
+email_from_name="$hostname | CloudPanel Server"
+email_to="system@media-techport.de"
 email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"
 
 # Leite die Ausgaben in das Log-File um
@@ -42,4 +44,4 @@ for file in $config_path*; do
 done
 
 # Senden einer E-Mail mit dem Logfile als Anhang
-echo "Die Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert. Bitte überprüfe das angehängte Log für Details." | mail -a "$log_file" -s "$email_subject" -r "$email_from" "$email_to"
+echo "Die Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert. Bitte überprüfe das angehängte Log für Details." | mail -a "$log_file" -s "$email_subject" -r "\"$email_from_name\" <$email_from>" "$email_to"
