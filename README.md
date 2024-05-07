@@ -1,4 +1,3 @@
-
 # Autorenew der Letsencrypt Zertifikate mit CloudPanel
 
 ## Was macht dieses Script?
@@ -11,6 +10,7 @@ Das Skript `cloudpanel-autorenew-letsencrypt-certs.v1.sh` automatisiert die Erne
 `git clone https://git.techniverse.net/scriptos/cloudpanel-autorenew-letsencrypt-certs.git`
 
 2. **Email Settings im Script anpassen**
+
 Folgende Variablen stehen zur Auswahl:
 ```
 email_from="mail@domain.com"
