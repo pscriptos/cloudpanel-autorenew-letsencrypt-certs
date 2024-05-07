@@ -12,10 +12,12 @@ Das Skript `cloudpanel-autorenew-letsencrypt-certs.v1.sh` automatisiert die Erne
 
 2. **Email Settings im Script anpassen**
 Folgende Variablen stehen zur Auswahl:
-`email_from="mail@domain.com"`
-`email_from_name="$hostname | CloudPanel Server"`
-`email_to="mail@domain.com"`
-`email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"`
+```
+email_from="mail@domain.com"
+email_from_name="$hostname | CloudPanel Server"
+email_to="mail@domain.com"
+email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"
+```
 
 3. **Ausführen des Scripts**
 `bash cloudpanel-autorenew-letsencrypt-certs.v1.sh`
