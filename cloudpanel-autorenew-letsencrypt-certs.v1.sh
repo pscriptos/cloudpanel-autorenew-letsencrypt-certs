@@ -3,11 +3,11 @@
 # Beschreibung: Erneuert automatisch Letsencrypt Zertifikate in Cloudpanel
 # Aufruf:       bash ./cloudpanel-autorenew-letsencrypt-certs.v1.sh
 # Autor:        Patrick Asmus
-# Web:          https://www.media-techport.de
-# Git-Reposit.: https://git.media-techport.de/scriptos/cloudpanel-autorenew-letsencrypt-certs.git
-# Version:      1.1.1
-# Datum:        18.03.2024
-# Modifikation: Emailfunktion um Ansendername erweitert
+# Web:          https://www.techniverse.net
+# Git-Reposit.: https://git.techniverse.net/scriptos/cloudpanel-autorenew-letsencrypt-certs.git
+# Version:      1.2
+# Datum:        07.05.2024
+# Modifikation: Domain geändert, Doku erweitert und Email Settings angepasst
 #####################################################
 
 # Variablen
@@ -16,9 +16,9 @@ config_path="/etc/nginx/sites-enabled/"
 log_dir="/var/log/script-logs"
 log_file="$log_dir/cloudpanel-letsencrypt-renew.log"
 
-email_from="noreply@media-techport.de"
+email_from="mail@domain.com"
 email_from_name="$hostname | CloudPanel Server"
-email_to="system@media-techport.de"
+email_to="mail@domain.com"
 email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"
 
 # Leite die Ausgaben in das Log-File um

@@ -1,3 +1,4 @@
+
 # Autorenew der Letsencrypt Zertifikate mit CloudPanel
 
 ## Was macht dieses Script?
@@ -6,15 +7,22 @@ Das Skript `cloudpanel-autorenew-letsencrypt-certs.v1.sh` automatisiert die Erne
 
 ## Ausführung:
 
-1. Klonen des Repositorys
-`git clone https://git.media-techport.de/scriptos/cloudpanel-autorenew-letsencrypt-certs.git`
+1. **Klonen des Repositorys**
+`git clone https://git.techniverse.net/scriptos/cloudpanel-autorenew-letsencrypt-certs.git`
 
-2. Ausführen des Scripts
+2. **Email Settings im Script anpassen**
+Folgende Variablen stehen zur Auswahl:
+`email_from="mail@domain.com"`
+`email_from_name="$hostname | CloudPanel Server"`
+`email_to="mail@domain.com"`
+`email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"`
+
+3. **Ausführen des Scripts**
 `bash cloudpanel-autorenew-letsencrypt-certs.v1.sh`
 
 Die Ausgabe sollte folgendermaßen aussehen:
 
-![autorenew](https://git.media-techport.de/scriptos/cloudpanel-autorenew-letsencrypt-certs/raw/branch/main/assets/autorenew1.png)
+![autorenew](https://git.techniverse.net/scriptos/cloudpanel-autorenew-letsencrypt-certs/raw/branch/main/assets/autorenew1.png)
 
 ## Cronjob:
 
