@@ -5,21 +5,25 @@
 # Autor:        Patrick Asmus
 # Web:          https://www.techniverse.net
 # Git-Reposit.: https://git.techniverse.net/scriptos/cloudpanel-autorenew-letsencrypt-certs.git
-# Version:      1.2
-# Datum:        07.05.2024
-# Modifikation: Domain geändert, Doku erweitert und Email Settings angepasst
+# Version:      1.3
+# Datum:        20.05.2024
+# Modifikation: Domains können nun von der Zertifikatenerneuerung ausgeschlossen werden
 #####################################################
 
-# Variablen
+# Variables
 hostname=$(hostname)
 config_path="/etc/nginx/sites-enabled/"
 log_dir="/var/log/script-logs"
 log_file="$log_dir/cloudpanel-letsencrypt-renew.log"
 
+# Email Settings
 email_from="mail@domain.com"
 email_from_name="$hostname | CloudPanel Server"
 email_to="mail@domain.com"
 email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"
+
+# Exclude Domains
+exclude_domains="example.com other.example.com"
 
 # Leite die Ausgaben in das Log-File um
 mkdir -p $log_dir
@@ -29,8 +33,12 @@ exec 2>&1
 # Funktion zur Erneuerung/Erstellung von Zertifikaten
 renew_certificate() {
     local domain=$1
-    echo "Erneuere/Erstelle Zertifikat für: $domain"
-    bash /usr/bin/clpctl lets-encrypt:install:certificate --domainName=$domain
+    if [[ ! $exclude_domains =~ (^|[[:space:]])$domain($|[[:space:]]) ]]; then
+        echo "Erneuere/Erstelle Zertifikat für: $domain"
+        bash /usr/bin/clpctl lets-encrypt:install:certificate --domainName=$domain
+    else
+        echo "Überspringe $domain, da es ausgeschlossen ist."
+    fi
 }
 
 # Extrahiere Domains aus den Konfigurationsdateien und führe Zertifikatserneuerung aus
