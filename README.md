@@ -1,4 +1,3 @@
-
 # Autorenew der Letsencrypt Zertifikate mit CloudPanel
 
 
@@ -20,6 +19,7 @@ Das kann ganz einfach geschehen, in dem die auszuschließenden Domains in der Va
 **Ein Beispiel:**
 
 `exclude_domains="git.techniverse.net techniverse.net"`
+
 In diesem Beispiel werden die Domains (Subdomains) `git.techniverse.net` und `techniverse.net` vom verlängern bzw. erstellen der LetzEncrypt Zertifikate ausgeschlossen.
 Domains müssen immer durch Leerzeichen getrennt werden.
 Sollen keine Domains ausgeschlossen werden, reicht es, die Variable leer zu lassen: `exclude_domains=""`
