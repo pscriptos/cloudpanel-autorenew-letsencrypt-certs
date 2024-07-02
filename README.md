@@ -11,7 +11,7 @@ Der Wert ist mit 14 Tagen voreingestellt und kann nach belieben verändert werde
 
 Es durchsucht die Nginx-Konfigurationsdateien im Verzeichnis `/etc/nginx/sites-enabled/` nach dem Domain-Namen, extrahiert diesen und führt den Befehl `clpctl lets-encrypt:install:certificate` aus, um das entsprechende SSL-Zertifikat zu erneuern oder zu installieren. Das Skript protokolliert alle seine Aktivitäten in eine Log-Datei, die im Verzeichnis `/var/log/script-logs` gespeichert wird.
 
-## Features dieses Scriptes:
+## Feature: Domains ausschließen
 
 Domains können jetzt ausgeschlossen werden.
 Das kann ganz einfach geschehen, in dem die auszuschließenden Domains in der Variable `exclude_domains=` gepflegt werden.
@@ -23,6 +23,33 @@ Das kann ganz einfach geschehen, in dem die auszuschließenden Domains in der Va
 In diesem Beispiel werden die Domains (Subdomains) `git.techniverse.net` und `techniverse.net` vom verlängern bzw. erstellen der LetzEncrypt Zertifikate ausgeschlossen.
 Domains müssen immer durch Leerzeichen getrennt werden.
 Sollen keine Domains ausgeschlossen werden, reicht es, die Variable leer zu lassen: `exclude_domains=""`
+
+
+## Feature: Alternative DNS Names berücksichtigen
+
+Alternative DNS Names werden jetzt ebenfalls unterstützt.
+
+Die einzige Voraussetzung ist, dass in der Vhost Konfiguration der Alternative DNS Name nach dem eigentlichen DNS Namen angegeben wird.
+
+**Ein Beispiel:**
+
+Ich habe eine Site erstellt. Dabei habe ich die Domain `cloud.media-techport.de` angegeben.
+In der Vhost Konfiguration ist dieser an erster Stelle gepflegt:
+
+```yaml
+server {
+  listen 80;
+  listen [::]:80;
+  listen 443 ssl http2;
+  listen [::]:443 ssl http2;
+  {{ssl_certificate_key}}
+  {{ssl_certificate}}
+  server_name cloud.media-techport.de cloud.techniverse.net;
+  {{root}}
+```
+
+An zweiter Stelle habe ich den alternativen DNS Name gepflegt. In meinem Fall `cloud.techniverse.net`
+Mehr müsst ihr nicht tun. Das Script wird dies berücksichtigen.
 
 
 ## Ausführung:
