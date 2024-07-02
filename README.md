@@ -62,6 +62,15 @@ Wenn ein Zertifikat länger gültig ist, als in der Variable angegeben, sieht di
 
 `Das Zertifikat für dl.techniverse.net ist noch 88 Tage gültig. Keine Erneuerung erforderlich.`
 
+Wenn ein Zertifikat mit einem Alternativ DNS Name verlängert / erstellt wird, sieht die Ausgabe folgend aus:
+
+```bash
+Das Zertifikat für cloud.media-techport.de,cloud.techniverse.net läuft in weniger als 29 Tagen ab (in 27 Tagen).
+Erneuere/Erstelle Zertifikat für: cloud.media-techport.de mit alternativen Namen: cloud.media-techport.de,cloud.techniverse.net
+Certificate installation was successful.
+```
+
+
 ## Cronjob:
 
 Der Cronjob kann wiefolgt konfiguriert werden.
