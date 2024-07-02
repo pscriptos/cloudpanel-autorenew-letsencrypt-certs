@@ -45,9 +45,12 @@ email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"
 
 3. **Ausführen des Scripts**
 
-`bash cloudpanel-autorenew-letsencrypt-certs.v1.sh`
+```bash
+bash cloudpanel-autorenew-letsencrypt-certs.v1.sh
+```
 
 Die Ausgabe sieht folgendermaßen aus:
+
 ```bash
 Das Zertifikat für cloud.media-techport.de läuft in weniger als 59 Tagen ab (in 58 Tagen).
 Erneuere/Erstelle Zertifikat für: cloud.media-techport.de
@@ -56,11 +59,15 @@ Certificate installation was successful.
 
 Wenn eine Domain übersprungen wird, sieht die Ausgabe folgendermaßen aus:
 
-`Überspringe techniverse.net, da es ausgeschlossen ist.`
+```bash
+Überspringe techniverse.net, da es ausgeschlossen ist.
+```
 
 Wenn ein Zertifikat länger gültig ist, als in der Variable angegeben, sieht die Ausgabe folgendermaßen aus:
 
-`Das Zertifikat für dl.techniverse.net ist noch 88 Tage gültig. Keine Erneuerung erforderlich.`
+```bash
+Das Zertifikat für dl.techniverse.net ist noch 88 Tage gültig. Keine Erneuerung erforderlich.
+```
 
 Wenn ein Zertifikat mit einem Alternativ DNS Name verlängert / erstellt wird, sieht die Ausgabe folgend aus:
 
