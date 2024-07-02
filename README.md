@@ -31,7 +31,8 @@ Sollen keine Domains ausgeschlossen werden, reicht es, die Variable leer zu lass
 
 `git clone https://git.techniverse.net/scriptos/cloudpanel-autorenew-letsencrypt-certs.git`
 
-3. **Email Settings im Script anpassen**
+
+2. **Email Settings im Script anpassen**
 
 Folgende Variablen stehen zur Auswahl, wenn der Emailversand genutzt werden soll:
 ```bash
@@ -42,7 +43,7 @@ email_subject="Letsencrypt Zertifikate wurden auf $HOSTNAME erneuert"
 ```
 
 
-4. **Ausführen des Scripts**
+3. **Ausführen des Scripts**
 
 `bash cloudpanel-autorenew-letsencrypt-certs.v1.sh`
 
